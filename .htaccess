@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteBase /tests/test_20/
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php?param=$1 [QSA,L]
+
+
+AuthType Basic
+AuthName "Password Protected Area"
+AuthUserFile /Applications/MAMP/htdocs/tests/test_20/.htpasswd
+Require valid-user

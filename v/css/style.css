@@ -1,0 +1,79 @@
+#Apples div.a {
+    border:  1px dotted #ccc;
+    padding: 8px;
+    float: left;
+    margin: 0 8px 8px 0;
+    border-radius: 5%;
+    height: 128px;
+}
+
+#Apples div.off {
+    display: none;
+    /* border:  1px dotted #ccc;
+    padding: 8px;
+    float: left;
+    margin-right: 8px;
+    border-radius: 5%;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+    opacity: 25%; */
+    /* transition-delay: 2s; */
+}
+
+#Apples div.a div.pic {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+#Apples div.a div.pic img {
+    display: block;
+    overflow: hidden;
+    margin: 0% 0;
+    width: 100px;
+    height: 100px;
+}
+
+#Apples div.a div.pic img.red {
+    filter: invert(32%) sepia(79%) saturate(6386%) hue-rotate(350deg) brightness(111%) contrast(102%);
+}
+
+#Apples div.a div.pic img.orange {
+    filter: invert(71%) sepia(72%) saturate(4782%) hue-rotate(360deg) brightness(103%) contrast(105%);
+}
+
+#Apples div.a div.pic img.yellow {
+    filter: invert(89%) sepia(43%) saturate(754%) hue-rotate(2deg) brightness(113%) contrast(92%);
+}
+
+#Apples div.a div.pic img.green {
+    filter: invert(29%) sepia(99%) saturate(4566%) hue-rotate(119deg) brightness(96%) contrast(104%);
+}
+
+#Apples div.a div.pic img.darkred {
+    filter: invert(46%) sepia(88%) saturate(282%) hue-rotate(314deg) brightness(91%) contrast(61%);
+}
+
+#Apples div.a button.drop {
+    margin-bottom: 6px;
+    display: block;
+}
+#Apples div.a button.dropOff {
+    margin-bottom: 6px;
+    display: none;
+}
+
+#Apples div.a div.eat {
+    margin-bottom: 6px;
+    display: none;
+}
+#Apples div.a div.eatOn {
+    margin-bottom: 6px;
+    display: block;
+}
+
+#Apples div.a div.eatOn input {
+    width: 30px;
+    margin: 0 4px;
+}
