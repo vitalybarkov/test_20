@@ -100,9 +100,9 @@ function dropApple (i) {
     });
 
     // change UI buttons for the apple card
-    let btnDrop = document.getElementById('apple-' + i);
-    btnDrop.getElementsByTagName('button')[0].className = 'dropOff';
-    let inpEat = btnDrop.getElementsByTagName('div')[1].className = 'eatOn';
+    let apple = document.getElementById('apple-' + i);
+    apple.getElementsByTagName('button')[0].className = 'dropOff';
+    apple.getElementsByTagName('div')[1].className = 'eatOn';
 }
 
 function eatApple (i, percentage) {
@@ -112,23 +112,20 @@ function eatApple (i, percentage) {
         console.log(data);
         parseData = JSON.parse(data);
         if (parseData.payload) {
-            changeEatedPercentage(parseData); 
+            // change eated percentage
+            if (!parseData.payload.deleted) {
+                let apple = document.getElementById('apple-' + i);
+                apple.getElementsByClassName('pic')[0].getElementsByTagName('img')[0].style.marginTop = parseData.payload.eatedPercentage + '%';
+            } else {
+                deleteApple(i);
+            }
         }
 
-    });
-
-    function changeEatedPercentage (data) {
-        if (!data.payload.deleted) {
-            let btnDrop = document.getElementById('apple-' + i);
-            btnDrop.getElementsByClassName('pic')[0].getElementsByTagName('img')[0].style.marginTop = data.payload.eatedPercentage + '%';
-        } else {
-            deleteApple(i);
-        }
-    }   
+    });  
 }
 
 function deleteApple (i) {
     // change UI buttons for the apple card
-    let btnDrop = document.getElementById('apple-' + i);
-    btnDrop.className = 'a off';
+    let apple = document.getElementById('apple-' + i);
+    apple.className = 'a off';
 }

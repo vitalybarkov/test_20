@@ -1,18 +1,25 @@
 <?php
-require_once "route.php";
 $baseUri = '/tests/test_20';
 
-route($baseUri . '/GrowApples', function () {
-    require __DIR__ . '/c/GrowApples.php';
-});
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    $request = $baseUri . '/' . $_GET['param'];
+} 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $request = $_SERVER['REQUEST_URI'];
+}
 
-route($baseUri . '/EditApple', function () {
-    require __DIR__ . '/c/EditApple.php';
-});
-
-route($baseUri . '/', function () {
-    require __DIR__ . '/app.html';
-});
-
-$action = $_SERVER['REQUEST_URI'];
-dispatch($action);
+switch ($request) {
+    case $baseUri . '/' :
+        require __DIR__ . '/app.html';
+        break;
+    case $baseUri . '/GrowApples' :
+        require __DIR__ . '/c/GrowApples.php';
+        break;
+    case $baseUri . '/EditApple' :
+        require __DIR__ . '/c/EditApple.php';
+        break;
+    default:
+        http_response_code(404);
+        require __DIR__ . '/c/Default.php';
+        break;
+}

@@ -14,7 +14,7 @@ abstract class Controller {
         } else {
             $response = array (
                 'status'    => 'error',
-                'message'   => 'Available GET or POST request only',
+                'message'   => 'Available GET or POST requests only',
             );
         
             return json_encode($response);
