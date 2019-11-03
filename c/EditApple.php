@@ -5,7 +5,7 @@ require_once './m/Apple.php';
 class EditApple extends Controller {
     protected function request () {
         $request = $_POST;
-        if ($request['id'] > 0 && $request['drop'] > 0 || $request['eat'] > 0) {
+        if ($request['id'] > 0 && $request['drop'] > 0 || $request['eat']) {
             $params = array (
             'id'     => 0,
             'drop'   => false,
@@ -13,13 +13,18 @@ class EditApple extends Controller {
             );
 
             // check the arguments
+            if (strpos($request['eat'], ',') !== false) {
+                $request['eat'] = str_replace(",", ".", $request['eat']);
+            }
+            // var_dump($request['eat']);
+            // exit;
             if ($request['id'] > 0 && preg_match('/^[0-9]+$/', $request['id'])) {
                 $params['id'] = (int)$request['id'];
             }
             if ($request['drop'] > 0 && preg_match('/^[01]+$/', $request['drop'])) {
                 $params['drop'] = (boolean)$request['drop'];
             }
-            if ($request['eat'] > 0 && preg_match('/^[0-9]+(\\.[0-9]+)?$/', $request['eat'])) {
+            if ($request['eat'] > 0 && preg_match('/[+-]?\d+(\.\d+)?([Ee][+-]?\d+)?/', $request['eat'])) {
                 $params['eat'] = (float)$request['eat'];
             }
 
