@@ -16,8 +16,6 @@ class EditApple extends Controller {
             if (strpos($request['eat'], ',') !== false) {
                 $request['eat'] = str_replace(",", ".", $request['eat']);
             }
-            // var_dump($request['eat']);
-            // exit;
             if ($request['id'] > 0 && preg_match('/^[0-9]+$/', $request['id'])) {
                 $params['id'] = (int)$request['id'];
             }
