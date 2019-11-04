@@ -13,6 +13,13 @@ function renderApples (apples) {
         apple.id = "apple-" + $i;
         document.getElementById('Apples').appendChild(apple);
 
+        let btn = document.createElement("DIV");
+        btn.classList.add("dropButton");
+        btn.addEventListener("click", function() {
+            dropApple($i);
+        });
+        apple.appendChild(btn);
+
         let pic = document.createElement("DIV");
         pic.classList.add("pic");
         apple.appendChild(pic);
@@ -20,16 +27,16 @@ function renderApples (apples) {
         let picImg = document.createElement("IMG");
         picImg.src = './v/i/ag.png';
         picImg.classList.add(apples.payload[$i - 1].color);
-        picImg.style.marginTop = "0%";
+        picImg.style.marginTop = "-100%";
         pic.appendChild(picImg);
         
-        let btn = document.createElement("BUTTON");
-        btn.classList.add("drop");
-        btn.innerHTML = 'DROP';
-        btn.addEventListener("click", function() {
-            dropApple($i);
-        });
-        apple.appendChild(btn);
+        // let btn = document.createElement("BUTTON");
+        // btn.classList.add("drop");
+        // btn.innerHTML = 'DROP';
+        // btn.addEventListener("click", function() {
+        //     dropApple($i);
+        // });
+        // apple.appendChild(btn);
 
         let eat = document.createElement("DIV");
         eat.classList.add("eat");
@@ -101,8 +108,9 @@ function dropApple (i) {
 
     // change UI buttons for the apple card
     let apple = document.getElementById('apple-' + i);
-    apple.getElementsByTagName('button')[0].className = 'dropOff';
-    apple.getElementsByTagName('div')[1].className = 'eatOn';
+    apple.getElementsByTagName('div')[0].className = 'dropButtonOff';
+    apple.getElementsByTagName('div')[2].className = 'eatOn';
+    apple.getElementsByClassName('pic')[0].getElementsByTagName('img')[0].style.marginTop = 0 + '%';
 }
 
 function eatApple (i, percentage) {
@@ -127,5 +135,12 @@ function eatApple (i, percentage) {
 function deleteApple (i) {
     // change UI buttons for the apple card
     let apple = document.getElementById('apple-' + i);
-    apple.className = 'a off';
+    apple.className = 'a animation';
+    delay(apple);
+}
+
+function delay (apple) {
+    setTimeout(function(){
+        apple.className = 'a off';
+    }, 2000);
 }

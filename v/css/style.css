@@ -3,6 +3,7 @@
 }
 
 #Apples div.a {
+    background-color: white;
     border:  1px dotted #ccc;
     padding: 8px;
     float: left;
@@ -10,7 +11,15 @@
     border-radius: 5%;
     height: 128px;
 }
-
+#Apples div.animation {
+    margin-top: -25%;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+    opacity: 0%;
+    box-shadow: 0px 25px 88px -35px rgba(0, 0, 0, .65);
+    transition-timing-function: cubic-bezier(0.540, 0, 0.815, 1.650);
+    transition-duration: .5s;
+}
 #Apples div.off {
     display: none;
     /* border:  1px dotted #ccc;
@@ -37,6 +46,8 @@
     margin: 0% 0;
     width: 100px;
     height: 100px;
+    transition-timing-function: cubic-bezier(0.540, -0.600, 0.815, 1.650);
+    transition-duration: .20s;
 }
 
 #Apples div.a div.pic img.red {
@@ -59,12 +70,22 @@
     filter: invert(46%) sepia(88%) saturate(282%) hue-rotate(314deg) brightness(91%) contrast(61%);
 }
 
-#Apples div.a button.drop {
+/* #Apples div.a button.drop {
     margin-bottom: 6px;
     display: block;
 }
 #Apples div.a button.dropOff {
     margin-bottom: 6px;
+    display: none;
+} */
+
+#Apples div.a div.dropButton {
+    background-color: transparent;
+    height: 127px;
+    width: 100px;
+    position: absolute;
+}
+#Apples div.a div.dropButtonOff {
     display: none;
 }
 
@@ -79,5 +100,13 @@
 
 #Apples div.a div.eatOn input {
     width: 30px;
+    height: 12px;
     margin: 0 4px;
+    padding: 2px 2px;
+}
+
+#Apples div.a div.eatOn button {
+    text-align: center;
+    width: 38px;
+    padding: 3px 0;
 }
