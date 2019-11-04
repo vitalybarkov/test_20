@@ -27,20 +27,19 @@ class EditApple extends Controller {
             }
 
             // get the data
-            $db = new DB();
-            if ($existedApple = $db->getExistedApple($params['id'])) {
+            if ($existedApple = DB::getExistedApple($params['id'])) {
                 $apple = new Apple($params['id'], $existedApple['Color'], $existedApple['CreationDate'], $existedApple['DropDate'], $existedApple['Dropped'], $params['drop'], $existedApple['EatedPercentage'], $params['eat']);
-                $db->editApple($apple);
+                DB::editApple($apple);
             }
 
             // prepare the json response
             $response = array (
-                'status'    => $db->status,
-                'payload'   => $db->data
+                'status'    => DB::$status,
+                'payload'   => DB::$data
             );
-            if ($db->message) {
+            if (DB::$message) {
                 $response = array_merge($response, array (
-                    'message'   => $db->message
+                    'message'   => DB::$message
                 ));
             }
 

@@ -86,7 +86,7 @@
     position: absolute;
 }
 #Apples div.a div.dropButton:hover {
-    background-color: #ECF1F2;
+    background-color: rgb(226, 222, 206);
     border-radius: 5%;
     cursor: pointer;
 }

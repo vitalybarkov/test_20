@@ -12,10 +12,11 @@ class GrowApples extends Controller {
             $quantity = (int)$request['quantity'];
         }
 
+        // ini_set('display_errors', 1);
+
         // get the data
         $tree = new Tree($quantity);
-        $db = new DB();
-        $db->growApples($tree);
+        DB::growApples($tree);
 
         // prepare the json response
         $response = array (
