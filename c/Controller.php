@@ -1,5 +1,5 @@
 <?php
-require_once 'DB.php';
+require_once './m/DB.php';
 
 abstract class Controller {
     function __construct () {
