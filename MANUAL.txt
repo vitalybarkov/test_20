@@ -1,5 +1,6 @@
 Need create test_apples database, or just execute database.sql;
-Change the root directory '/tests/test_20' to yours like '/' in files: index.php, .htaccess, and js/view.js at the head 'http://localhost/tests/test_20' to yours somethink like 'http://localhost/';
+Change mysql connection settings at the top of file /c/DB.php;
+Change the root directory '/tests/test_20' to yours like '/' in files: index.php, .htaccess, and v/js/view.js at the top 'http://localhost/tests/test_20' to yours somethink like 'http://localhost/';
 Also need change a system file location of the .htpasswd in root .htaccess (AuthUserFile);
 Installed htpasswd — root:root;
 To use the app just follow up yours root url of the app something like http://localhost/tests/test_20
