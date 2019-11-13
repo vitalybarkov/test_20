@@ -12,7 +12,7 @@ class Tree {
     }
 
     private function growApples ($quantity) {
-        $apple = false;
+        $apples = false;
         
         if ($quantity) {
             $this->appleQuantity = $quantity;
